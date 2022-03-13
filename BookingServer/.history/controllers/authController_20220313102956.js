@@ -4,7 +4,7 @@ module.exports.signupController = async (req, res,next) => {
     try {
         let user = new User({
             fname: req.body.fname,
-            lname: req.body.lname,
+            lname: rew
             email: req.body.email,
             role: req.body.role
         })

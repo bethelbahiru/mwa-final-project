@@ -3,8 +3,7 @@ const User = require('../models/userModel')
 module.exports.signupController = async (req, res,next) => {
     try {
         let user = new User({
-            fname: req.body.fname,
-            lname: req.body.lname,
+            fname: req.body.,
             email: req.body.email,
             role: req.body.role
         })
