@@ -10,20 +10,21 @@ module.exports.signupController = async (req, res,next) => {
         })
         user.password = await user.hashPassword(req.body.password)
         let createdUser = await user.save()
-        res.json({success: true, data: createdUser})
+        res.json({message: 'user registered', data: createdUser})
     } catch (error) {
-        res.json({success: false, error})   
+        res.json({error})   
     }
 
 }
 
 module.exports.loginController = async (req, res,next) => {
-    
-    try {
-        let user = await User.findOne({email: req.body.email})
-    if (user){
-        var password = await user.compareUserPassword(req.body.password, user.password)
+
+    let user = await User.findOne({email: req.body.email})
+    if (user == null){
+        res.json({success: false,message: 'User is not found'})
     }
+
+    let password = await user.compareUserPassword(req.body.password, user.password)
     
     if (password){
         let token = await user.genertareJwtToken({user} , "secret", {expiresIn: 604800})
@@ -31,13 +32,7 @@ module.exports.loginController = async (req, res,next) => {
             res.json({success: true, token: token, userCred: user})
         }
     } else {
-        res.json({success: false, message: 'Wrong Password entered'})
+        res.json({success: true, message: 'Wrong Password entered'})
     }
-    } catch(error) {
-        res.json({success: false, message: 'Wrong User Detail'})
-    }
-    
-     
-        
 
 }

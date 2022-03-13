@@ -19,8 +19,8 @@ module.exports.signupController = async (req, res,next) => {
 
 module.exports.loginController = async (req, res,next) => {
     
-    try {
-        let user = await User.findOne({email: req.body.email})
+    try {}
+    let user = await User.findOne({email: req.body.email})
     if (user){
         var password = await user.compareUserPassword(req.body.password, user.password)
     }
@@ -33,10 +33,6 @@ module.exports.loginController = async (req, res,next) => {
     } else {
         res.json({success: false, message: 'Wrong Password entered'})
     }
-    } catch(error) {
-        res.json({success: false, message: 'Wrong User Detail'})
-    }
-    
      
         
 
