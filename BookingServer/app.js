@@ -3,6 +3,7 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 
 const authRouter = require('./routes/authRouter')
+const adminRouter = require('./routes/adminRouter')
 
 const app = express()
 
@@ -19,6 +20,8 @@ app.use(cors())
 /* User Authentication */
 app.use('/auth/users', authRouter)
 
+// House
+app.use('/api/admin', adminRouter)
 
 /* Error Handling */
 app.use((err, req, res, next)=> {

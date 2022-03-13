@@ -1,9 +1,26 @@
-POST http://localhost:6000/auth/users/login
+POST http://localhost:3000/auth/users/signup
 Content-Type: application/json
 
 {
-    "username": "koki",
-    "email": "koki@gmail.com",
-    "password": "gelila",
-    "role": "Admin"
+    "username": "beza",
+    "email": "beza@gmail.com",
+    "password": "beza123",
+    "role": "admin"
+}
+
+###
+POST http://localhost:3000/api/admin/add 
+Content-Type: application/json 
+
+{
+    "description": "A two bed room suite",
+    "address": "1000 S 3rd st, Fairfield IA", 
+    "maxGuests": "4",
+    "bedRooms": "2",
+    "bathRooms": "2",
+    "available": true,
+    "offer": ["wifi","parking"],
+    "checkinType": "Self checkin",
+    "picture": "https://www.google.com/"
+    
 }
