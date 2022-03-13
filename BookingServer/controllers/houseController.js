@@ -1,0 +1,35 @@
+const House = require('../models/houseModel')
+
+
+module.exports.addHouseController = async(req, res, next) => {
+    try{
+        let house = new House({
+            description: req.body.description,
+            address: req.body.address, //can be unique
+            maxGuests: req.body.maxGuests,
+            bedRooms: req.body.bedRooms,
+            bathRooms: req.body.bathRooms,
+            available: req.body.available,
+            offer: req.body.offer,
+            checkinType: req.body.checkinType,
+            picture: req.body.picture
+        })
+
+        const createdHouse = await house.save();
+        res.json({success: true, message : 'A new house is added', data : createdHouse})
+    } catch(error) {
+        res.json({err: error})
+    }
+}
+
+module.exports.viewAllHouses = async(req, res, next) => {
+    try {
+        const houses = await req.collection.find({}, options).toArray();
+        res.json({
+            success : true,
+            data : houses
+        })
+    } catch (error) {
+        res.json({err: error})
+    }
+}
