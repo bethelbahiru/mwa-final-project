@@ -5,7 +5,7 @@ module.exports.addHouseController = async(req, res, next) => {
     try{
         let house = new House({
             description: req.body.description,
-            address: req.body.address, //can be unique
+            address: req.body.address, 
             maxGuests: req.body.maxGuests,
             bedRooms: req.body.bedRooms,
             bathRooms: req.body.bathRooms,

@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminComponent } from './admin/admin.component';
 import { CustomerComponent } from './customer/customer.component';
+import { AddHouseComponent } from './add-house-component/add-house-component.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { CustomerComponent } from './customer/customer.component';
     HeaderComponent,
     FooterComponent,
     AdminComponent,
-    CustomerComponent
+    CustomerComponent,
+    AddHouseComponent
   ],
   imports: [
     BrowserModule,
@@ -35,8 +37,10 @@ import { CustomerComponent } from './customer/customer.component';
       {path: 'login', component: LoginComponent},
       {path: 'signup', component: SignupComponent},
       {path: 'admin', component: AdminComponent},
-      {path: 'customer', component: CustomerComponent}
+      {path: 'customer', component: CustomerComponent},
+      {path: 'add', component: AddHouseComponent},
     ]),
+    
     BrowserAnimationsModule,
     AngularMaterialModule,
     FormsModule,
