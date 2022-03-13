@@ -1,0 +1,64 @@
+<mat-card-content>
+    <form class="my-form" [formGroup]="addHouseForm" (ngSubmit)="addNew()" flex  style="overflow: auto; height: 100%;">
+        <h2>Add a new house</h2>
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Address</mat-label>
+            <input matInput placeholder="Address" formControlName="address" required>
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Maximum Guests</mat-label>
+            <input matInput placeholder="Maximum Guests" formControlName="maxGuest" type="number" required>
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Bed Rooms</mat-label>
+            <input matInput placeholder="Bed Room" formControlName="bedRoom">
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Bath Rooms</mat-label>
+            <input matInput placeholder="Bath Rooms" formControlName="bathRoom">
+        </mat-form-field>
+        <p>
+            <mat-radio-group formControlName="available">
+                <mat-label style="margin-right: 10px;">Available</mat-label>
+                <mat-radio-button style="margin-right: 10px;" value="true">Yes</mat-radio-button>
+                <mat-radio-button value="false">No</mat-radio-button>
+            </mat-radio-group>
+        </p>
+        
+        <!-- <mat-form-field class="full-width" appearance="outline" formControlName="offer">
+            <mat-label>This place offers </mat-label>
+            <p>
+                <mat-checkbox value="wifi">Wifi</mat-checkbox>
+            </p>
+            <p>
+                <mat-checkbox value="parking">Parking</mat-checkbox>
+            </p>
+            <p>
+                <mat-checkbox value="airConditioning">Air Conditioning</mat-checkbox>
+            </p>
+            <p>
+                <mat-checkbox value="washer">Washer</mat-checkbox>
+            </p>
+        </mat-form-field> -->
+        
+        <p>
+            <mat-radio-group formControlName="checkinType">
+                <mat-label style="margin-right: 10px;">Check-in Type</mat-label>
+                <mat-radio-button style="margin-right: 10px;" value="Self CheckIn">Self Checkin</mat-radio-button>
+                <mat-radio-button value="Assisted CheckIn">Assisted Checkin</mat-radio-button>
+            </mat-radio-group>
+        </p>
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Description</mat-label>
+            <textarea matInput placeholder="Description" formControlName="description" required></textarea>
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Picture URL</mat-label>
+            <input matInput placeholder="Picture URL" formControlName="picture">
+        </mat-form-field>
+       
+            <mat-card-actions>
+                <button mat-raised-button color="primary" type="submit" [disabled]="addHouseForm.invalid">ADD</button>
+            </mat-card-actions> 
+    </form>
+</mat-card-content>
