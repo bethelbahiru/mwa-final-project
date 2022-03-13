@@ -34,7 +34,7 @@ module.exports.loginController = async (req, res,next) => {
         res.json({success: false, message: 'Wrong Password entered'})
     }
     } catch(error) {
-        res.json({success: false, message: 'Wrong User Detail'})
+        
     }
     
      

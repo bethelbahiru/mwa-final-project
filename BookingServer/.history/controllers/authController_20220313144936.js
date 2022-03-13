@@ -19,11 +19,11 @@ module.exports.signupController = async (req, res,next) => {
 
 module.exports.loginController = async (req, res,next) => {
     
-    try {
-        let user = await User.findOne({email: req.body.email})
+    let user = await User.findOne({email: req.body.email})
     if (user){
-        var password = await user.compareUserPassword(req.body.password, user.password)
+        let password = await user.compareUserPassword(req.body.password, user.password)
     }
+    
     
     if (password){
         let token = await user.genertareJwtToken({user} , "secret", {expiresIn: 604800})
@@ -33,10 +33,6 @@ module.exports.loginController = async (req, res,next) => {
     } else {
         res.json({success: false, message: 'Wrong Password entered'})
     }
-    } catch(error) {
-        res.json({success: false, message: 'Wrong User Detail'})
-    }
-    
      
         
 
