@@ -10,6 +10,7 @@ import { UserService } from '../Services/user-service.service';
 export class HeaderComponent implements OnInit {
 
   isLoggedIn: boolean = false
+  isAdmin: boolean = false
 
   constructor(private router: Router, private userService: UserService) {
    }
@@ -31,9 +32,23 @@ export class HeaderComponent implements OnInit {
     return this.isLoggedIn
   }
 
+  whoLoggedIn() {
+    const role = localStorage.getItem('Role')
+    if(role === 'admin') {
+      this.isAdmin = true
+    }
+    return this.isAdmin
+  }
+
   logout() {
     localStorage.removeItem('Token');
+    localStorage.removeItem('Role')
+    localStorage.removeItem('Name')
     this.router.navigate([ 'login' ]);
+  }
+
+  addNewHouse() {
+    this.router.navigate(['add'])
   }
 
 }

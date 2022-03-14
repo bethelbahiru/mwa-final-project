@@ -17,4 +17,8 @@ export class HouseService {
   getHouses() {
     return this.http.get('http://localhost:3000/api/admin/houses')
   }
+
+  updateHouse(houseData: any) {
+    return this.http.put('http://localhost:3000/api/admin/update', houseData)
+  }
 }

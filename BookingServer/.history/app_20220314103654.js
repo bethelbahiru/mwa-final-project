@@ -5,12 +5,12 @@ const mongoose = require('mongoose')
 const authRouter = require('./routes/authRouter')
 const adminRouter = require('./routes/adminRouter')
 
-const {verify} = require('./middleware/verify')
+const adminRouter = require('./routes/adminRouter')
 
 const app = express()
 
 /* Database Connection */
-const url = ''
+const url = 'mongodb+srv://bethelmulat:613718@cluster0.nk7lc.mongodb.net/Booking?retryWrites=true&w=majority'
 mongoose.connect(url)
     .then(_ => console.log(`connected to DB`))
 

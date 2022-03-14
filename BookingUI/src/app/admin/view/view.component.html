@@ -3,7 +3,7 @@
     <img mat-card-image style="margin-right: 200px;
     margin-top: 0px;" src="{{house.picture}}" alt="picture of the house" />
     <mat-card-content>
-      <div class="model">{{ house.description }} </div>
+      <div class="model">{{ house.description }}<span>{{ ' by ' + userName}}</span></div>
       <br/>
       <div class="props">
         <span>Address:</span> <br />
@@ -32,7 +32,7 @@
     </mat-card-content>
     
     <mat-card-actions>
-        <button mat-raised-button>
+        <button mat-raised-button (click)="updateHouse()">
           Update
         </button>
         <button mat-raised-button color="primary">
