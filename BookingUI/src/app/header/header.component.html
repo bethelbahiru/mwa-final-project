@@ -12,7 +12,10 @@
       </div>
 
       <div *ngIf="loggedIn()">
-        <button mat-raised-button style="margin-right:10px" (click)="logout()">Log Out</button>
+        <span *ngIf="whoLoggedIn()">
+        <button mat-raised-button style="margin-right:10px" (click)="addNewHouse()">Add New House</button>
+      </span>
+        <button mat-raised-button style="margin-right:10px" (click)="logout()">Log Out</button>    
       </div>
 
 

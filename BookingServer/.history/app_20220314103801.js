@@ -10,7 +10,7 @@ const {verify} = require('./middleware/verify')
 const app = express()
 
 /* Database Connection */
-const url = ''
+const url = 'mongodb+srv://bethelmulat:613718@cluster0.nk7lc.mongodb.net/Booking?retryWrites=true&w=majority'
 mongoose.connect(url)
     .then(_ => console.log(`connected to DB`))
 
@@ -23,7 +23,7 @@ app.use(cors())
 app.use('/auth/users', authRouter)
 
 // House
-app.use('/api/admin', adminRouter)
+app.use('/api/admin', verify, adminRouter)
 
 /* Error Handling */
 app.use((err, req, res, next)=> {
