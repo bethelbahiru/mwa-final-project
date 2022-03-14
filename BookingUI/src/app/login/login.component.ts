@@ -26,8 +26,9 @@ export class LoginComponent {
   login(){
     console.log(this.loginForm.value);
     this.userService.login(this.loginForm.value).subscribe((data: any) => {
-      console.log(data.success)
+      const fullName = data.userCred.fname + ' ' +data.userCred.lname
       localStorage.setItem('Token', data.token);
+      localStorage.setItem('Name', fullName)
       
       if(data.success === true) {
         localStorage.setItem('Role', data.userCred.role)

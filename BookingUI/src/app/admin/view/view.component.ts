@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { UserService } from 'src/app/Services/user-service.service';
 
 @Component({
   selector: 'app-view',
@@ -8,8 +9,11 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ViewComponent implements OnInit {
 
   @Input() house: any 
+  userName: any;
 
-  constructor() { }
+  constructor() { 
+    this.userName = localStorage.getItem('Name')
+  }
 
   ngOnInit(): void {
   }
