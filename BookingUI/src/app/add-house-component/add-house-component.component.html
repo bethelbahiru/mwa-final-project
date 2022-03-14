@@ -1,6 +1,6 @@
 <mat-card-content>
-    <form class="my-form" [formGroup]="addHouseForm" (ngSubmit)="addNew()" flex  style="overflow: auto; height: 100%;">
-        <h2>Add a new house</h2>
+    <form class="my-form" [formGroup]="addHouseForm" (ngSubmit)="addNew()" flex  style="overflow: auto; min-height: 110%;">
+        <h2>Add A New House</h2>
         <mat-form-field class="full-width" appearance="outline">
             <mat-label>Address</mat-label>
             <input matInput placeholder="Address" formControlName="address" required>
@@ -10,20 +10,29 @@
             <input matInput placeholder="Maximum Guests" formControlName="maxGuest" type="number" required>
         </mat-form-field>
         <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Bed Rooms</mat-label>
-            <input matInput placeholder="Bed Room" formControlName="bedRoom">
+            <mat-label>Number Of Bed Rooms</mat-label>
+            <input matInput placeholder="Bed Room" formControlName="bedRoom" type="number" required>
         </mat-form-field>
         <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Bath Rooms</mat-label>
-            <input matInput placeholder="Bath Rooms" formControlName="bathRoom">
+            <mat-label>Number Of Bath Rooms</mat-label>
+            <input matInput placeholder="Bath Rooms" formControlName="bathRoom" type="number" required>
         </mat-form-field>
-        <p>
+        <!-- <p>
             <mat-radio-group formControlName="available">
                 <mat-label style="margin-right: 10px;">Available</mat-label>
                 <mat-radio-button style="margin-right: 10px;" value="true">Yes</mat-radio-button>
                 <mat-radio-button value="false">No</mat-radio-button>
             </mat-radio-group>
-        </p>
+        </p> -->
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Available Date Range</mat-label>
+            <mat-date-range-input [rangePicker]="picker">
+              <input matStartDate placeholder="Start date" formControlName="startDate">
+              <input matEndDate placeholder="End date" formControlName="endDate">
+            </mat-date-range-input>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+          </mat-form-field>
         
         <!-- <mat-form-field class="full-width" appearance="outline" formControlName="offer">
             <mat-label>This place offers </mat-label>
@@ -40,25 +49,35 @@
                 <mat-checkbox value="washer">Washer</mat-checkbox>
             </p>
         </mat-form-field> -->
-        
-        <p>
-            <mat-radio-group formControlName="checkinType">
-                <mat-label style="margin-right: 10px;">Check-in Type</mat-label>
-                <mat-radio-button style="margin-right: 10px;" value="Self CheckIn">Self Checkin</mat-radio-button>
-                <mat-radio-button value="Assisted CheckIn">Assisted Checkin</mat-radio-button>
-            </mat-radio-group>
-        </p>
         <mat-form-field class="full-width" appearance="outline">
             <mat-label>Description</mat-label>
             <textarea matInput placeholder="Description" formControlName="description" required></textarea>
         </mat-form-field>
         <mat-form-field class="full-width" appearance="outline">
             <mat-label>Picture URL</mat-label>
-            <input matInput placeholder="Picture URL" formControlName="picture">
+            <input matInput placeholder="Picture URL" formControlName="picture" required>
         </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Total Price</mat-label>
+            <input matInput placeholder="Bed Room" formControlName="price" type="number" required>
+        </mat-form-field>
+
+        <p>
+            <mat-radio-group formControlName="checkinType">
+                <mat-label style="margin-right: 10px;">Check-in Type</mat-label>
+                <mat-radio-button style="margin-right: 10px;" value="Self CheckIn">Self Check-In</mat-radio-button>
+                <mat-radio-button value="Assisted CheckIn">Assisted Check-In</mat-radio-button>
+            </mat-radio-group>
+        </p>
+
+        <mat-radio-group>
+            <label style="margin-right: 10px;">Additional Offers:</label>
+            <mat-checkbox *ngFor="let v of Vehicles" style="margin-right: 10px;" [checked]="v.active" (change)="v.active=$event.checked;setOffers()">{{ v.value }}</mat-checkbox>
+         </mat-radio-group>
        
-            <mat-card-actions>
-                <button mat-raised-button color="primary" type="submit" [disabled]="addHouseForm.invalid">ADD</button>
-            </mat-card-actions> 
+        <mat-card-actions>
+            <button mat-raised-button color="primary" type="submit" [disabled]="addHouseForm.invalid">ADD HOUSE</button>
+        </mat-card-actions> 
     </form>
 </mat-card-content>

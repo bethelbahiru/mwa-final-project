@@ -8,7 +8,8 @@ const adminRouter = require('./routes/adminRouter')
 const app = express()
 
 /* Database Connection */
-const url = ''
+const url = '  modified:   BookingServer/controllers/authController.js
+'
 mongoose.connect(url)
     .then(_ => console.log(`connected to DB`))
 

@@ -13,8 +13,7 @@ module.exports.addHouseController = async(req, res, next) => {
             endDate: req.body.endDate,
             offer: req.body.offer,
             checkinType: req.body.checkinType,
-            picture: req.body.picture,
-            price: req.body.price
+            picture: req.body.picture
         })
 
         const createdHouse = await house.save();
@@ -26,7 +25,7 @@ module.exports.addHouseController = async(req, res, next) => {
 
 module.exports.viewAllHouses = async(req, res, next) => {
     try {
-        const houses = await House.find({}, options).toArray();
+        const houses = await find({}, options).toArray();
         res.json({
             success : true,
             data : houses
