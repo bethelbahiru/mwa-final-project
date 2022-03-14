@@ -13,8 +13,7 @@ module.exports.addHouseController = async(req, res, next) => {
             endDate: req.body.endDate,
             offer: req.body.offer,
             checkinType: req.body.checkinType,
-            picture: req.body.picture,
-            price: req.body.price
+            picture: req.body.picture
         })
 
         const createdHouse = await house.save();

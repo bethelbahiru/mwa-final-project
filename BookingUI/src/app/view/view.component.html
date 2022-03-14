@@ -1,0 +1,41 @@
+
+<mat-card class="tp-card">
+    
+    <img mat-card-image style="margin-right: 200px;" src="{{'https://www.google.com/imgres?imgurl=https%3A%2F%2Fimageio.forbes.com%2Fspecials-images%2Fimageserve%2F5d35eacaf1176b0008974b54%2F0x0.jpg%3Fformat%3Djpg%26crop%3D4560%2C2565%2Cx790%2Cy784%2Csafe%26fit%3Dcrop&imgrefurl=https%3A%2F%2Fwww.forbes.com%2Fsites%2Fjimgorzelany%2F2019%2F07%2F23%2Fhere-are-the-coolest-new-cars-for-2020%2F&tbnid=8g-t95qhDcTJnM&vet=12ahUKEwjuhpSLiMT2AhWRb80KHZMyA98QMygAegUIARDVAQ..i&docid=HZLLyFhoQjvNCM&w=4560&h=2565&q=car&hl=en&authuser=0&ved=2ahUKEwjuhpSLiMT2AhWRb80KHZMyA98QMygAegUIARDVAQ' }}" alt="picture of the car" />
+    <mat-card-content>
+      <div class="model">{{ "car.brand "}} </div>
+      <br />
+      <div class="props">
+        <span>Year:</span> <br />
+        <span>Engine:</span> <br />
+        <span>Transmission:</span> <br />
+        <span>MPG:</span> <br />
+        <span>Type:</span> <br />
+        <span>Exterior Color:</span> <br />
+      </div>
+
+      <div class="vals">
+        <span>{{ "car.year" }}</span> <br />
+     
+      </div>
+
+      <br /><br /><br />
+      <div class="price">Price: {{ "car.price" }}</div>
+<!-- 
+      <div class="buy">
+    
+      </div> -->
+    </mat-card-content>
+    
+    <mat-card-actions>
+        <button mat-raised-button>
+          Update
+        </button>
+        <button mat-raised-button color="warn">
+          Delete
+        </button>
+    </mat-card-actions>
+ 
+  </mat-card>
+
+
