@@ -1,3 +1,4 @@
+const { ObjectId } = require('mongodb');
 const House = require('../models/houseModel')
 
 
@@ -32,3 +33,19 @@ module.exports.viewAllHouses = async(req, res, next) => {
         res.json({err: error})
     }
 }
+
+// module.exports.deleteHouse = async(req, res, next) => {
+//     const id = new ObjectId(req.params.id)
+//     console.log("To be deleted ID - " + id)
+//     try {
+//             const houseToDelete = await House.findByIdAndRemove({_id:id}, function(err, data){
+//                 if(!err){
+//                     console.log(`House with id ${id} is deleted`)
+//                     res.json({msg : 'House is deleted', data: houseToDelete})
+//                 }
+//             })
+//     }
+//     catch(error) {
+//         res.json({err: err})
+//     }
+// }
