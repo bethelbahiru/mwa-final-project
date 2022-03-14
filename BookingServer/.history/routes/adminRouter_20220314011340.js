@@ -1,11 +1,11 @@
 const express = require('express')
-const { addHouseController, viewAllHouses } = require('../controllers/houseController')
+const { addHouseController, viewHouse } = require('../controllers/houseController')
 
 const router = express.Router()
 
 router.post('/add', addHouseController)
 
-router.get('/houses', viewAllHouses)
+ro
 
 module.exports = router
 

@@ -6,9 +6,9 @@ module.exports.addHouseController = async(req, res, next) => {
         let house = new House({
             description: req.body.description,
             address: req.body.address, 
-            maxGuest: req.body.maxGuest,
-            bedRoom: req.body.bedRoom,
-            bathRoom: req.body.bathRoom,
+            maxGuest: req.body.maxGuests,
+            bedRooms: req.body.bedRooms,
+            bathRooms: req.body.bathRooms,
             startDate: req.body.startDate,
             endDate: req.body.endDate,
             offer: req.body.offer,

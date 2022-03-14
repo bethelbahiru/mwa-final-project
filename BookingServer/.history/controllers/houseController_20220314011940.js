@@ -6,9 +6,9 @@ module.exports.addHouseController = async(req, res, next) => {
         let house = new House({
             description: req.body.description,
             address: req.body.address, 
-            maxGuest: req.body.maxGuest,
-            bedRoom: req.body.bedRoom,
-            bathRoom: req.body.bathRoom,
+            maxGuests: req.body.maxGuests,
+            bedRooms: req.body.bedRooms,
+            bathRooms: req.body.bathRooms,
             startDate: req.body.startDate,
             endDate: req.body.endDate,
             offer: req.body.offer,
@@ -26,8 +26,11 @@ module.exports.addHouseController = async(req, res, next) => {
 
 module.exports.viewAllHouses = async(req, res, next) => {
     try {
-        const houses = await House.find({}).exec();
-        res.json(houses)
+        const houses = await House.find({}).e();
+        res.json({
+            success : true,
+            data : houses
+        })
     } catch (error) {
         res.json({err: error})
     }

@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const houseSchema = new mongoose.Schema({
     description: {type: String},
     address: {type: String},                //can be unique
-    maxGuest: {type: String},
+    maxGuests: {type: String},
     bedRoom: {type: Number},
     bathRoom: {type: Number},
     startDate: {type: Date},
