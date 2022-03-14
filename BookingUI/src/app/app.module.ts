@@ -16,6 +16,7 @@ import { AdminComponent } from './admin/admin.component';
 import { CustomerComponent } from './customer/customer.component';
 import { AddHouseComponent } from './add-house-component/add-house-component.component';
 import { ViewComponent } from './admin/view/view.component';
+import { UpdateHouseComponent } from './update-house/update-house.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ViewComponent } from './admin/view/view.component';
     AdminComponent,
     CustomerComponent,
     AddHouseComponent,
-    ViewComponent
+    ViewComponent,
+    UpdateHouseComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +43,7 @@ import { ViewComponent } from './admin/view/view.component';
       {path: 'admin', component: AdminComponent},
       {path: 'customer', component: CustomerComponent},
       {path: 'add', component: AddHouseComponent},
+      {path: 'update', component: UpdateHouseComponent}
     ]),
     
     BrowserAnimationsModule,
