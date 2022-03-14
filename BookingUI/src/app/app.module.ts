@@ -15,7 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AdminComponent } from './admin/admin.component';
 import { CustomerComponent } from './customer/customer.component';
 import { AddHouseComponent } from './add-house-component/add-house-component.component';
-import { ViewComponent } from './view/view.component';
+import { ViewComponent } from './admin/view/view.component';
 
 
 @NgModule({

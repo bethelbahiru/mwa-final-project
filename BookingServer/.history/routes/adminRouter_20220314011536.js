@@ -5,7 +5,7 @@ const router = express.Router()
 
 router.post('/add', addHouseController)
 
-router.get('/houses', viewAllHouses)
+router.get('/houses', )
 
 module.exports = router
 

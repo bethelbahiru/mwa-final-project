@@ -26,4 +26,4 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3000/api/admin/houses
+GET http://localhost:3000/api/admin/add 

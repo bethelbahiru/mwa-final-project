@@ -1,0 +1,45 @@
+<mat-card class="tp-card" >
+    
+    <img mat-card-image style="margin-right: 200px;
+    margin-top: 0px;" src="{{house.picture}}" alt="picture of the house" />
+    <mat-card-content>
+      <div class="model">{{ house.description }} </div>
+      <br/>
+      <div class="props">
+        <span>Address:</span> <br />
+        <span>Maximum Guests:</span> <br />
+        <span>Number of Bedrooms:</span> <br />
+        <span>Number of Bathrooms:</span> <br />
+        <span>Available Date Range:</span> <br />
+        <span>Checkin Type:</span> <br />
+        <span>Additional Offers:</span> <br />
+        <span>Description:</span><br />
+        <span>Price:</span><br />
+      </div>
+
+      <div class="vals">
+        <span>{{ house.address }}</span> <br/>
+        <span>{{ house.maxGuest }}</span> <br/>
+        <span>{{ house.bedRoom}}</span> <br/>
+        <span>{{ house.bathRoom}}</span> <br/>
+        <span>{{ house.startDate | date }}</span> to <span>{{ house.endDate | date }}</span><br/>
+        <span>{{ house.checkinType }}</span> <br/>
+        <span *ngFor="let offer of house.offer">{{ offer + ','}}</span> <br/>
+        <span>{{ house.description}}</span> <br/>
+        <span>{{ house.price | currency}}</span> <br/>
+    
+      </div>
+    </mat-card-content>
+    
+    <mat-card-actions>
+        <button mat-raised-button>
+          Update
+        </button>
+        <button mat-raised-button color="primary">
+          Delete
+        </button>
+    </mat-card-actions>
+ 
+  </mat-card>
+
+
