@@ -10,6 +10,7 @@ import { UserService } from '../Services/user-service.service';
 })
 export class SignupComponent  {
   signupForm: FormGroup;
+  hide = true;
 
 
 
@@ -27,9 +28,14 @@ export class SignupComponent  {
 
   signUp(): void {
     console.log(this.signupForm.value);
-    this.userService.signupUser(this.signupForm.value).subscribe((data) => {
+    this.userService.signupUser(this.signupForm.value).subscribe((data: any) => {
       console.log(data)
-      this.route.navigate(['login'])
+      if(data.success === true) {
+        this.route.navigate(['login'])
+      } else {
+        alert('User is already registered')
+        this.signupForm.reset()
+      }
     })
   }
 

@@ -12,6 +12,7 @@ import { UserService } from '../Services/user-service.service';
 export class LoginComponent {
 
   loginForm: FormGroup;
+  hide = true;
 
   constructor(private formBuilder: FormBuilder, private route: Router, private userService: UserService, private buttonService: ButtonService) { 
     this.loginForm = formBuilder.group({
