@@ -9,21 +9,20 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:3000/api/admin/add 
+PUT http://localhost:3000/api/admin/update/:_id
 Content-Type: application/json 
 
-{
-    "description": "A two bed room suite",
-    "address": "1000 S 3rd st, Fairfield IA", 
-    "maxGuests": "4",
-    "bedRooms": "2",
-    "bathRooms": "2",
-    "available": true,
-    "offer": ["wifi","parking"],
-    "checkinType": "Self checkin",
-    "picture": "https://www.google.com/"
-    
-}
+{  
+    "description":"Very bad",
+    "address":"Asamara",
+    "maxGuest":"7",
+    "bedRoom":6,
+    "bathRoom":2,
+    "offer":["Air Conditioning","Parking Lot"],
+    "checkinType":"Assisted CheckIn",
+    "picture":"picture",
+    "price":"67"}
+    //"__v":0}
 
 ###
 GET http://localhost:3000/api/admin/houses
