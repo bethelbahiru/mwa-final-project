@@ -17,6 +17,9 @@ import { CustomerComponent } from './customer/customer.component';
 import { AddHouseComponent } from './add-house-component/add-house-component.component';
 import { ViewComponent } from './admin/view/view.component';
 import { UpdateHouseComponent } from './update-house/update-house.component';
+import { AdminGuard } from './guard/admin.guard';
+import { CustomerGuard } from './guard/customer.guard';
+
 
 
 @NgModule({
@@ -40,9 +43,9 @@ import { UpdateHouseComponent } from './update-house/update-house.component';
       {path: 'home', component: HomeComponent},
       {path: 'login', component: LoginComponent},
       {path: 'signup', component: SignupComponent},
-      {path: 'admin', component: AdminComponent},
-      {path: 'customer', component: CustomerComponent},
-      {path: 'add', component: AddHouseComponent},
+      {path: 'admin', component: AdminComponent, canActivate: [AdminGuard]},
+      {path: 'customer', component: CustomerComponent, canActivate: [CustomerGuard]},
+      {path: 'add', component: AddHouseComponent, canActivate:[AdminGuard]},
       {path: 'update', component: UpdateHouseComponent}
     ]),
     
