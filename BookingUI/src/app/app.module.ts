@@ -19,6 +19,9 @@ import { ViewComponent } from './admin/view/view.component';
 import { UpdateHouseComponent } from './update-house/update-house.component';
 import { AdminGuard } from './guard/admin.guard';
 import { CustomerGuard } from './guard/customer.guard';
+import { DialogComponent } from './rent/dialog/dialog.component';
+import { ConfigInterceptor } from './Interceptor/config.interceptor';
+import { RentComponent } from './rent/rent.component';
 
 
 
@@ -35,8 +38,8 @@ import { CustomerGuard } from './guard/customer.guard';
     AddHouseComponent,
     ViewComponent,
     UpdateHouseComponent,
-    // RentComponent,
-    // DialogComponent
+    RentComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,7 @@ import { CustomerGuard } from './guard/customer.guard';
       {path: 'customer', component: CustomerComponent, canActivate: [CustomerGuard]},
       {path: 'add', component: AddHouseComponent, canActivate:[AdminGuard]},
       {path: 'update', component: UpdateHouseComponent, canActivate: [AdminGuard]},
-  //    {path: 'rent', component: RentComponent, canActivate: [ CustomerGuard]}
+      {path: 'rent', component: RentComponent, canActivate: [ CustomerGuard]}
     ]),
     
     BrowserAnimationsModule,
@@ -58,11 +61,11 @@ import { CustomerGuard } from './guard/customer.guard';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  // providers: [ {
-  //           provide : HTTP_INTERCEPTORS,
-  //           useClass: ConfigInterceptor,
-  //           multi: true
-  // }],
+  providers: [ {
+            provide : HTTP_INTERCEPTORS,
+            useClass: ConfigInterceptor,
+            multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
