@@ -1,13 +1,13 @@
 const express = require('express')
 
-const { addHouseController, viewAllHouses, updateHouseController, deleteHouseController } = require('../controllers/houseController')
+const { addHouseController, viewAllHouses, updateHouseController } = require('../controllers/houseController')
+const { addHouseController, viewAllHouses, deleteHouse } = require('../controllers/houseController')
 
 
 const router = express.Router()
 
 router.post('/add', addHouseController)
 router.put('/update', updateHouseController)
-router.post('/delete', deleteHouseController)
 
 router.get('/houses', viewAllHouses)
 

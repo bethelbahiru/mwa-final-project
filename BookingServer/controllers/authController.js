@@ -23,12 +23,10 @@ module.exports.loginController = async (req, res,next) => {
         let user = await User.findOne({email: req.body.email})
     if (user){
         var password = await user.compareUserPassword(req.body.password, user.password)
-    } else {
-        res.json({success: false, message: 'User not found, Sign up to continue'})
     }
     
     if (password){
-        let token = await user.genertareJwtToken({user} , process.env.SECRET, {expiresIn: 604800})
+        let token = await user.genertareJwtToken({user} , "secret", {expiresIn: 604800})
         if(token) {
             res.json({success: true, token: token, userCred: user})
         }

@@ -26,11 +26,11 @@ export class LoginComponent {
   login(){
     console.log(this.loginForm.value);
     this.userService.login(this.loginForm.value).subscribe((data: any) => {
-      if(data.success === true) {
-        const fullName = data.userCred.fname + ' ' +data.userCred.lname
-        localStorage.setItem('Token', data.token);
-        localStorage.setItem('Name', fullName)
+      const fullName = data.userCred.fname + ' ' +data.userCred.lname
+      localStorage.setItem('Token', data.token);
+      localStorage.setItem('Name', fullName)
       
+      if(data.success === true) {
         localStorage.setItem('Role', data.userCred.role)
         if(data.userCred.role === 'admin') {
           this.route.navigate(['admin'])
@@ -38,10 +38,12 @@ export class LoginComponent {
           this.route.navigate(['customer'])
         }
       } else if (data.success === false){
-        alert(data.message)
+        alert('Wrong email or password')
         this.loginForm.reset()
         this.route.navigate(['login'])
-      }    
+      }
+      
+      
     },
       (error)=> {
         console.log(error)

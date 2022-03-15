@@ -1,7 +1,6 @@
 const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
-require('dotenv').config()
 
 const authRouter = require('./routes/authRouter')
 const adminRouter = require('./routes/adminRouter')
@@ -11,7 +10,7 @@ const {verify} = require('./middleware/verify')
 const app = express()
 
 /* Database Connection */
-const url = process.env.MONGO_URL
+const url = ''
 mongoose.connect(url)
     .then(_ => console.log(`connected to DB`))
 
@@ -24,13 +23,13 @@ app.use(cors())
 app.use('/auth/users', authRouter)
 
 // House
-app.use('/api/admin', verify, adminRouter)
+app.use('/api/admin', adminRouter)
 
 /* Error Handling */
 app.use((err, req, res, next)=> {
     res.json({message: err})
 })
 
-app.listen(process.env.PORT, () => {
+app.listen(3000, () => {
     console.log('Server is listening....')
 })

@@ -12,8 +12,7 @@ const houseSchema = new mongoose.Schema({
     offer: {type: Array},
     checkinType: {type: String},
     picture: {type: String},
-    price: {type: String},
-    ownerName: {type: String}
+    price: {type: String}
 })
 
 module.exports = mongoose.model('House', houseSchema)

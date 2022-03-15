@@ -21,8 +21,4 @@ export class HouseService {
   updateHouse(houseData: any) {
     return this.http.put('http://localhost:3000/api/admin/update', houseData)
   }
-
-  deleteHouse(houseData: any) {
-    return this.http.post('http://localhost:3000/api/admin/delete', houseData)
-  }
 }
