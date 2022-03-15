@@ -31,9 +31,10 @@ export class HeaderComponent implements OnInit {
   loggedIn(): boolean{
     this.isLoggedIn = this.userService.isLoggedIn()
     this.role = localStorage.getItem('Role')
-    setTimeout(()=> {
-      this.name = localStorage.getItem('Name')
-    }, 0)
+    this.name = localStorage.getItem('Name')
+    // setTimeout(()=> {
+    //   this.name = localStorage.getItem('Name')
+    // }, 0)
     return this.isLoggedIn
   }
 

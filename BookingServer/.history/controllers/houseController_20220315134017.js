@@ -63,7 +63,7 @@ module.exports.viewAllHouses = async(req, res, next) => {
         house.bathRoom = req.body.bathRoom;
         house.startDate = new Date();
         house.endDate = new Date();
-     //   house.offer = req.body.offer;
+        house.offer = req.body.offer;
         house.checkinType = req.body.checkinType;
         house.picture = req.body.picture; 
         house.price = req.body.price;

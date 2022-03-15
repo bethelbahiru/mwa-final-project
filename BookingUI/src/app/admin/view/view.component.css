@@ -8,7 +8,4 @@
 
 div.props {float: left; margin-right: 65px; font-weight: bold;}
 
-.only.mat-raised-button{
-    background-color: #84549b;
-    color: white;
-  }
+.only.mat-raised-button{ background-color: #84549b; color: white;}
