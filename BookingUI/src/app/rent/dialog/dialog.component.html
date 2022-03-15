@@ -1,0 +1,14 @@
+<h1 mat-dialog-title style="font-weight: bold;">Booking Confirmation</h1>
+<div mat-dialog-content style="font-weight: bold;">
+    <mat-icon aria-hidden="false" color="primary" style="font-size:50px; margin-left: 150px;" aria-label="Example check_circle icon">check_circle</mat-icon>
+    <br>
+    <br>
+    Booking confirmationn sent to {{data.rentData.email}} for 
+    <br>
+    <p>Card Owner Name : {{data.rentData.ownerName}}</p>
+    <p>Card Number : {{data.rentData.cardNum}}</p>
+    <p>Duration : {{data.rentData.startDate | date}} - {{data.rentData.startDate | date}}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close style="font-weight: bold;" (click)="close()">Close</button>
+</div>
