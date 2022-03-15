@@ -1,9 +1,9 @@
 <p>
-    <mat-toolbar color="primary" style="height: 100px;">
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-        <mat-icon>menu</mat-icon>
+    <mat-toolbar color="primary" style="height: 100px; background-color: #84549b;" >
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with home icon">
+        <mat-icon>home</mat-icon>
       </button>
-      <span>My App</span>
+      <span style="margin-right: 10px;" *ngIf="!loggedIn()">Book Your Stay</span><span *ngIf="loggedIn()">{{ ' Welcome, ' + name}}</span>
       <span class="example-spacer"></span>
 
       <div *ngIf="!loggedIn()">
@@ -12,9 +12,9 @@
       </div>
 
       <div *ngIf="loggedIn()">
-        <span *ngIf="whoLoggedIn()">
+        <span *ngIf="role === 'admin'">
         <button mat-raised-button style="margin-right:10px" (click)="addNewHouse()">Add New House</button>
-      </span>
+        </span>
         <button mat-raised-button style="margin-right:10px" (click)="logout()">Log Out</button>    
       </div>
 

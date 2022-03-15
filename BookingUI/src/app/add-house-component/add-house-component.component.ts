@@ -34,7 +34,8 @@ export class AddHouseComponent {
       'checkinType': ['', Validators.compose([Validators.required])],
       'picture': ['', Validators.compose([Validators.required])],
       'description': ['', Validators.compose([Validators.required])],
-      'price': ['', Validators.compose([Validators.required])]
+      'price': ['', Validators.compose([Validators.required])],
+      'ownerName': ['', Validators.compose([Validators.required])]
 
     })
    
@@ -42,20 +43,18 @@ export class AddHouseComponent {
    }
 
   addNew(){
-    console.log(this.addHouseForm.value);
+    console.log(this.addHouseForm.value.ownerName);
     this.houseService.addHouse(this.addHouseForm.value).subscribe((data: any) => {
       console.log(data)
+      this.route.navigate(['admin'])
     })
-  }
-  changeEvent(event:any) {
-
   }
 
   setOffers()
   {
-        const control=this.addHouseForm.get('offer');
-        if (control)
-          control.setValue(this.Vehicles.filter(x=>x.active).map(x=>x.value))
+    const control=this.addHouseForm.get('offer');
+    if (control)
+      control.setValue(this.Vehicles.filter(x=>x.active).map(x=>x.value))
   }
 
 }
