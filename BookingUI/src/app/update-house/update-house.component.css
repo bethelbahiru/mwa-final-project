@@ -16,3 +16,8 @@
 h2{
     text-align: center;
 }
+
+.mat-raised-button{
+  background-color: #84549b;
+  color: white;
+}

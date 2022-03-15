@@ -1,6 +1,10 @@
 <mat-card-content>
-    <form class="my-form" [formGroup]="houseForm" (ngSubmit)="updateHouse()" flex  style="overflow: auto; min-height: 110%;">
+    <form class="my-form" [formGroup]="houseForm" (ngSubmit)="updateHouse()">
         <h2>Update Details</h2>
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Owner Name</mat-label>
+            <input matInput placeholder="Owner Name" formControlName="ownerName" required>
+        </mat-form-field>
         <mat-form-field class="full-width" appearance="outline">
             <mat-label>Address</mat-label>
             <input matInput placeholder="Address" formControlName="address" required>
@@ -77,7 +81,7 @@
          </mat-radio-group> -->
        
         <mat-card-actions>
-            <button mat-raised-button color="primary" type="submit" [disabled]="houseForm.invalid">Update</button>
+            <button mat-raised-button  type="submit" [disabled]="houseForm.invalid">Update</button>
         </mat-card-actions> 
     </form>
 </mat-card-content>

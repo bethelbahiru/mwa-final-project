@@ -3,7 +3,7 @@
     <img mat-card-image style="margin-right: 200px;
     margin-top: 0px;" src="{{house.picture}}" alt="picture of the house" />
     <mat-card-content>
-      <div class="model">{{ house.description }}<span>{{ ' by ' + userName}}</span></div>
+      <div class="model">{{ house.description }}<span>{{ ' by ' + house.ownerName}}</span></div>
       <br/>
       <div class="props">
         <span>Address:</span> <br />
@@ -31,14 +31,20 @@
       </div>
     </mat-card-content>
     
-    <mat-card-actions>
+    <mat-card-actions *ngIf="role === 'admin'">
         <button mat-raised-button (click)="updateHouse()">
           Update
         </button>
-        <button mat-raised-button color="primary">
+        <button mat-raised-button class="only" (click)="deleteHouse()">
           Delete
         </button>
     </mat-card-actions>
+
+    <mat-card-actions *ngIf="role === 'customer'">
+      <button mat-raised-button class="only" (click)="rentHouse()">
+        Book Your Stay
+      </button>
+  </mat-card-actions>
  
   </mat-card>
 

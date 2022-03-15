@@ -10,7 +10,8 @@ import { UserService } from '../Services/user-service.service';
 export class HeaderComponent implements OnInit {
 
   isLoggedIn: boolean = false
-  isAdmin: boolean = false
+  role: any;
+  name: any;
 
   constructor(private router: Router, private userService: UserService) {
    }
@@ -29,15 +30,11 @@ export class HeaderComponent implements OnInit {
 
   loggedIn(): boolean{
     this.isLoggedIn = this.userService.isLoggedIn()
+    this.role = localStorage.getItem('Role')
+    setTimeout(()=> {
+      this.name = localStorage.getItem('Name')
+    }, 0)
     return this.isLoggedIn
-  }
-
-  whoLoggedIn() {
-    const role = localStorage.getItem('Role')
-    if(role === 'admin') {
-      this.isAdmin = true
-    }
-    return this.isAdmin
   }
 
   logout() {
