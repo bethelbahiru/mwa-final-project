@@ -63,7 +63,7 @@ module.exports.viewAllHouses = async(req, res, next) => {
         house.bathRoom = req.body.bathRoom;
         house.startDate = new Date();
         house.endDate = new Date();
-     //   house.offer = req.body.offer;
+        house.offer = req.body.offer;
         house.checkinType = req.body.checkinType;
         house.picture = req.body.picture; 
         house.price = req.body.price;
@@ -77,5 +77,4 @@ module.exports.deleteHouseController = async (req, res, next) => {
     const id = mongoose.Types.ObjectId(req.body._id)
     console.log(`ID of house to be deleted => ${id}`)
     await House.deleteOne({_id:id})
-    res.json({success: true}) 
-}
+    res.json({success: true}) }

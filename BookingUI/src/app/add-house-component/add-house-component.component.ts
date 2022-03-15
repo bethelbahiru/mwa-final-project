@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { ButtonService } from '../Services/button-service.service';
 import { HouseService } from '../Services/house.service';
 
@@ -12,6 +13,7 @@ import { HouseService } from '../Services/house.service';
 export class AddHouseComponent {
 
   addHouseForm: FormGroup;
+  private subscription: Subscription | undefined;
   Vehicles: any[] = [
     { value: "Wifi" },
     { value: "Air Conditioning"},
@@ -34,28 +36,33 @@ export class AddHouseComponent {
       'checkinType': ['', Validators.compose([Validators.required])],
       'picture': ['', Validators.compose([Validators.required])],
       'description': ['', Validators.compose([Validators.required])],
-      'price': ['', Validators.compose([Validators.required])]
+      'price': ['', Validators.compose([Validators.required])],
+      'ownerName': ['', Validators.compose([Validators.required])]
 
     })
    
-    this.buttonService.showbutton = true
+    this.subscription = this.addHouseForm?.valueChanges.subscribe(
+      (data: any) => console.log(data)
+    );
    }
 
   addNew(){
-    console.log(this.addHouseForm.value);
+    console.log(this.addHouseForm.value.ownerName);
     this.houseService.addHouse(this.addHouseForm.value).subscribe((data: any) => {
       console.log(data)
+      this.route.navigate(['admin'])
     })
-  }
-  changeEvent(event:any) {
-
   }
 
   setOffers()
   {
-        const control=this.addHouseForm.get('offer');
-        if (control)
-          control.setValue(this.Vehicles.filter(x=>x.active).map(x=>x.value))
+    const control=this.addHouseForm.get('offer');
+    if (control)
+      control.setValue(this.Vehicles.filter(x=>x.active).map(x=>x.value))
+  }
+
+  ngOnDestroy(): void {
+    this.subscription?.unsubscribe()
   }
 
 }

@@ -11,7 +11,7 @@ import { HeaderComponent } from './header/header.component';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AdminComponent } from './admin/admin.component';
 import { CustomerComponent } from './customer/customer.component';
 import { AddHouseComponent } from './add-house-component/add-house-component.component';
@@ -34,7 +34,9 @@ import { CustomerGuard } from './guard/customer.guard';
     CustomerComponent,
     AddHouseComponent,
     ViewComponent,
-    UpdateHouseComponent
+    UpdateHouseComponent,
+    // RentComponent,
+    // DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +48,8 @@ import { CustomerGuard } from './guard/customer.guard';
       {path: 'admin', component: AdminComponent, canActivate: [AdminGuard]},
       {path: 'customer', component: CustomerComponent, canActivate: [CustomerGuard]},
       {path: 'add', component: AddHouseComponent, canActivate:[AdminGuard]},
-      {path: 'update', component: UpdateHouseComponent}
+      {path: 'update', component: UpdateHouseComponent, canActivate: [AdminGuard]},
+  //    {path: 'rent', component: RentComponent, canActivate: [ CustomerGuard]}
     ]),
     
     BrowserAnimationsModule,
@@ -55,7 +58,11 @@ import { CustomerGuard } from './guard/customer.guard';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  // providers: [ {
+  //           provide : HTTP_INTERCEPTORS,
+  //           useClass: ConfigInterceptor,
+  //           multi: true
+  // }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

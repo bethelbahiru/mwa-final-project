@@ -1,8 +1,7 @@
 <div class="body">
-    <ul style="list-style-type:none;">
-      <li *ngFor="let house of houses">
-        <app-view [house] = "house"></app-view>
-        <br>
-      </li>
-    </ul>
+  <div *ngFor="let house of houses">
+    <app-view [house] = "house"></app-view>
+    <br>
   </div>
+
+</div>
