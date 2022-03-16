@@ -24,7 +24,7 @@ app.use(cors())
 app.use('/auth/users', authRouter)
 
 // House
-app.use('/api/admin', verify, adminRouter)
+app.use('/api/admin', adminRouter)
 
 /* Error Handling */
 app.use((err, req, res, next)=> {
