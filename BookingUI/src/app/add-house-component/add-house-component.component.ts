@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { ButtonService } from '../Services/button-service.service';
 import { HouseService } from '../Services/house.service';
 
@@ -12,6 +13,7 @@ import { HouseService } from '../Services/house.service';
 export class AddHouseComponent {
 
   addHouseForm: FormGroup;
+  private subscription: Subscription | undefined;
   Vehicles: any[] = [
     { value: "Wifi" },
     { value: "Air Conditioning"},
@@ -39,7 +41,9 @@ export class AddHouseComponent {
 
     })
    
-    this.buttonService.showbutton = true
+    this.subscription = this.addHouseForm?.valueChanges.subscribe(
+      (data: any) => console.log(data)
+    );
    }
 
   addNew(){
@@ -55,6 +59,10 @@ export class AddHouseComponent {
     const control=this.addHouseForm.get('offer');
     if (control)
       control.setValue(this.Vehicles.filter(x=>x.active).map(x=>x.value))
+  }
+
+  ngOnDestroy(): void {
+    this.subscription?.unsubscribe()
   }
 
 }

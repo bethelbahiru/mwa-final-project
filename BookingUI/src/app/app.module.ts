@@ -19,9 +19,9 @@ import { ViewComponent } from './admin/view/view.component';
 import { UpdateHouseComponent } from './update-house/update-house.component';
 import { AdminGuard } from './guard/admin.guard';
 import { CustomerGuard } from './guard/customer.guard';
-import { RentComponent } from './rent/rent.component';
 import { DialogComponent } from './rent/dialog/dialog.component';
-import {ConfigInterceptor} from '../app/Interceptor/config.interceptor'
+import { ConfigInterceptor } from './Interceptor/config.interceptor';
+import { RentComponent } from './rent/rent.component';
 
 
 

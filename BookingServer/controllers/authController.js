@@ -28,7 +28,7 @@ module.exports.loginController = async (req, res,next) => {
     }
     
     if (password){
-        let token = await user.genertareJwtToken({user} , process.env.SECRET, {expiresIn: 604800})
+        let token = await user.genertareJwtToken({user} , "secret", {expiresIn: 604800})
         if(token) {
             res.json({success: true, token: token, userCred: user})
         }
